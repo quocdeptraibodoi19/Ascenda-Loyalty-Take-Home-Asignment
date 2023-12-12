@@ -5,14 +5,7 @@ from typing import List
 from .offer import Offer, Merchant
 from .dataParser import DataParser
 
-class FileHandler:
-    _instance = None
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(FileHandler, cls).__new__(cls)
-        return cls._instance
-    
+class FileHandler:    
     def __init__(self) -> None:
         pass
     
