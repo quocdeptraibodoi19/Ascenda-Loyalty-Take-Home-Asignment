@@ -4,6 +4,7 @@ from typing import List
 
 from offer import Offer, Merchant
 
+# This class follows Singleton pattern since it doesn't maintain states and it just provides the needed information for the outsiders
 class InputParser:
     _instance = None
 
