@@ -1,7 +1,7 @@
 from typing import List
 from datetime import date
 
-from merchant import Merchant
+from .merchant import Merchant
 
 
 class Offer:
@@ -36,3 +36,7 @@ class Offer:
     @property
     def merchants(self) -> List[Merchant]:
         return self._merchants
+    
+    @merchants.setter
+    def merchants(self, merchants: List[Merchant]):
+        self._merchants = merchants

@@ -1,7 +1,7 @@
 from typing import List, Dict, Callable
 from datetime import date, timedelta
 
-from offer import Offer
+from .offer import Offer
 
 # This class is following the lazy evaluation pattern 
 class OfferFilter:
