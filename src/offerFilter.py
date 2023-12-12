@@ -19,15 +19,7 @@ class OfferFilter:
             result = list(filter(func, result))
         return result
 
-# This class follows Singleton pattern since it doesn't maintain states and it just provides the needed information for the outsiders
 class FilterFunctionManager:
-    _instance = None
-
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super(FilterFunctionManager, cls).__new__(cls)
-        return cls._instance
-    
     def __init__(self) -> None:
         pass
     

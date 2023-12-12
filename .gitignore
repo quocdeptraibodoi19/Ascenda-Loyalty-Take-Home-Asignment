@@ -1,2 +1,4 @@
 .env
 test.py
+sample_input.json
+output.json
