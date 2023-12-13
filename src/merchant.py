@@ -15,3 +15,6 @@ class Merchant:
     @property
     def distance(self) -> float:
         return self._distance
+
+    def __str__(self):
+        return f"Merchant(id={self.id}, name='{self.name}', distance={self.distance})"

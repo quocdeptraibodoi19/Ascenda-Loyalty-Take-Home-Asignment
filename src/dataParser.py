@@ -29,8 +29,8 @@ class DataParser:
             "title": offer.title,
             "description": offer.description,
             "category": offer.category,
-            "valid_to": offer.valid_to.strftime("%Y-%m-%d"),
-            "merchants": DataParser.reverse_parse_merchants(offer.merchants)
+            "merchants": DataParser.reverse_parse_merchants(offer.merchants),
+            "valid_to": offer.valid_to.strftime("%Y-%m-%d")
         }
 
     @staticmethod

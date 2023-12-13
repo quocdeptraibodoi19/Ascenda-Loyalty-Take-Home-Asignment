@@ -4,8 +4,7 @@ from datetime import datetime
 from .fileHandler import FileHandler
 from .dataParser import DataParser
 from .offerFilter import OfferFilter, FilterFunctionManager
-from .offerSelector import MerchantSelector, OfferSelector
-
+from .selector import OfferSelector, MerchantDistanceHeapCreationStrategy
 
 class CliApplication:
     def __init__(self) -> None:
@@ -62,16 +61,5 @@ class CliApplication:
             .execute()
         )
 
-        transformed_offer = []
-        for offer in filtered_offers_list:
-            selected_merchant = MerchantSelector(offer.merchants).select()
-            if selected_merchant is not None:
-                offer.merchants = [selected_merchant]
-                transformed_offer.append(offer)
-
-        offerSelector = OfferSelector(
-            target_num_offers=2, included_categories=[1, 2, 4], offers=transformed_offer
-        )
-        target_offers = offerSelector.select()
-
-        FileHandler.save_data(offers=target_offers, output_path=output_file_path)
+        targetOffers = OfferSelector.select(filtered_offers_list, 2, MerchantDistanceHeapCreationStrategy())
+        FileHandler.save_data(offers=targetOffers, output_path=output_file_path)
