@@ -1,6 +1,7 @@
 import argparse
 from datetime import datetime
 
+from .config import mapping_category, include_categories, day_gap, target_number_offers
 from .file_handler import FileHandler
 from .data_parser import DataParser
 from .offer_filter import OfferFilter, FilterFunctionManager
@@ -44,25 +45,22 @@ class CliApplication:
         filtered_offers_list = (
             offer_filter.filter(
                 FilterFunctionManager.category_filter_function(
-                    mapping_category={
-                        "Restaurant": 1,
-                        "Retail": 2,
-                        "Hotel": 3,
-                        "Activity": 4,
-                    },
-                    include_categories=["Restaurant", "Retail", "Activity"],
+                    mapping_category=mapping_category,
+                    include_categories=include_categories,
                 )
             )
             .filter(
                 FilterFunctionManager.valid_to_date_filter_function(
                     checkin_date=datetime.strptime(checkin_date, "%Y-%m-%d").date(),
-                    day_gap=5,
+                    day_gap=day_gap,
                 )
             )
             .execute()
         )
 
         target_offers = OfferSelector.select(
-            filtered_offers_list, 2, MerchantDistanceHeapCreationStrategy()
+            filtered_offers_list,
+            target_number_offers,
+            MerchantDistanceHeapCreationStrategy(),
         )
         FileHandler.save_data(offers=target_offers, output_path=output_file_path)
