@@ -1,5 +1,6 @@
 import argparse
 from datetime import datetime
+import os
 
 from .config import mapping_category, include_categories, day_gap, target_number_offers
 from .file_handler import FileHandler
@@ -18,12 +19,16 @@ class CliApplication:
             description="Ascenda Travel Platform CLI Application"
         )
         parser.add_argument(
-            "-d", "--checkin_date", help="Customer check-in date in YYYY-MM-DD format"
+            "-d",
+            "--checkin_date",
+            help="Customer check-in date in YYYY-MM-DD format",
+            required=True,
         )
         parser.add_argument(
             "-i",
             "--input_file_path",
             help="The path to the json file as the response from the Ascenda's external API",
+            required=True,
         )
         parser.add_argument(
             "-o",
@@ -33,7 +38,32 @@ class CliApplication:
         )
         return parser
 
+    def _check_paths(self):
+        if not os.path.exists(self.args.input_file_path):
+            print(
+                f"Error: Input file path '{self.args.input_file_path}' does not exist."
+            )
+            return False
+
+        output_dir = os.path.dirname(self.args.output_file_path)
+        if output_dir != "" and not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+            print(f"Created output directory: {output_dir}")
+
+        return True
+
+    def _check_date(self):
+        try:
+            datetime.strptime(self.args.checkin_date, "%Y-%m-%d")
+        except ValueError:
+            print("Error: Invalid date format. Please use YYYY-MM-DD.")
+            return False
+        return True
+
     def run(self):
+        if not self._check_paths() or not self._check_date():
+            return
+
         checkin_date = self.args.checkin_date
         input_file_path = self.args.input_file_path
         output_file_path = self.args.output_file_path
