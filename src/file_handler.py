@@ -8,13 +8,13 @@ from .data_parser import DataParser
 class FileHandler:
     def __init__(self) -> None:
         pass
-
+    
     @staticmethod
-    def load_data(input_path: str):
+    def _load_data(input_path: str):
         try:
             with open(input_path, "r") as file:
                 data = json.load(file)
-                return data.get("offers", [])
+                return data
         except FileNotFoundError:
             print(f"File not found: {input_path}")
         except json.JSONDecodeError as e:
@@ -23,10 +23,21 @@ class FileHandler:
             print(f"Error parsing data: {e}")
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
-        return []
+        return None
+    
+    @staticmethod
+    def load_offers(input_path: str):
+        data = FileHandler._load_data(input_path)
+        if data is None:
+            return []
+        return data.get("offers", [])
 
     @staticmethod
-    def save_data(offers: List[Offer], output_path: str):
+    def load_test_checkin_date(input_path: str):
+        return FileHandler._load_data(input_path).get("checkin_date", "")
+    
+    @staticmethod
+    def save_offers(offers: List[Offer], output_path: str):
         try:
             with open(output_path, "w") as file:
                 serialized_data = DataParser.reverse_parse_offers(offers=offers)

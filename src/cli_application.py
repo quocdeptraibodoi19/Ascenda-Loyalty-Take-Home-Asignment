@@ -38,7 +38,7 @@ class CliApplication:
         input_file_path = self.args.input_file_path
         output_file_path = self.args.output_file_path
 
-        offers_data = FileHandler.load_data(input_path=input_file_path)
+        offers_data = FileHandler.load_offers(input_path=input_file_path)
         offers_list = DataParser.parse_offers(offers_data=offers_data)
 
         offer_filter = OfferFilter(offers=offers_list)
@@ -63,4 +63,4 @@ class CliApplication:
             target_number_offers,
             MerchantDistanceHeapCreationStrategy(),
         )
-        FileHandler.save_data(offers=target_offers, output_path=output_file_path)
+        FileHandler.save_offers(offers=target_offers, output_path=output_file_path)

@@ -1,0 +1,19 @@
+{
+    "checkin_date": "2022-01-01",
+    "offers": [
+        {
+            "id": 1,
+            "title": "Offer 1",
+            "description": "Offer 1 description",
+            "category": 1,
+            "valid_to": "2022-01-06",
+            "merchants": [
+                {
+                    "id": 1,
+                    "name": "Offer1 Merchant1",
+                    "distance": 0.5
+                }
+            ]
+        }
+    ]
+}

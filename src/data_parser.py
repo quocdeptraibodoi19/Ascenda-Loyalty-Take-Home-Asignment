@@ -12,8 +12,8 @@ class DataParser:
     def parse_offer(offer_data: dict) -> Offer:
         return Offer(
             id=offer_data.get("id"),
-            title=offer_data.get("title"),
-            description=offer_data.get("description"),
+            title=offer_data.get("title", ""),
+            description=offer_data.get("description", ""),
             category=offer_data.get("category"),
             valid_to=datetime.strptime(offer_data.get("valid_to"), "%Y-%m-%d").date(),
             merchants=DataParser.parse_merchants(offer_data.get("merchants", [])),
@@ -42,7 +42,7 @@ class DataParser:
     def parse_merchant(merchant_data: dict) -> Merchant:
         return Merchant(
             id=merchant_data.get("id"),
-            name=merchant_data.get("name"),
+            name=merchant_data.get("name", ""),
             distance=merchant_data.get("distance"),
         )
 

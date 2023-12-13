@@ -1,0 +1,33 @@
+{
+    "checkin_date": "2022-01-01",
+    "offers": [
+        {
+            "id": 1,
+            "title": "Invalid Category Offer",
+            "description": "Invalid Category Offer description",
+            "category": 3,
+            "valid_to": "2022-01-06",
+            "merchants": [
+                {
+                    "id": 1,
+                    "name": "Invalid Merchant",
+                    "distance": 1.0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Invalid Date Offer",
+            "description": "Invalid Date Offer description",
+            "category": 1,
+            "valid_to": "2022-01-02",
+            "merchants": [
+                {
+                    "id": 2,
+                    "name": "Invalid Date Merchant",
+                    "distance": 2.0
+                }
+            ]
+        }
+    ]
+}
