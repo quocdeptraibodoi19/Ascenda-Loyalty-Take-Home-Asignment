@@ -2,3 +2,4 @@
 test.py
 sample_input.json
 output.json
+src/__pycache__/
