@@ -1,18 +1,18 @@
 import json
-from datetime import datetime
 from typing import List
 
-from .offer import Offer, Merchant
-from .dataParser import DataParser
+from .offer import Offer
+from .data_parser import DataParser
 
-class FileHandler:    
+
+class FileHandler:
     def __init__(self) -> None:
         pass
-    
+
     @staticmethod
     def load_data(input_path: str):
         try:
-            with open(input_path, 'r') as file:
+            with open(input_path, "r") as file:
                 data = json.load(file)
                 return data.get("offers", [])
         except FileNotFoundError:
@@ -24,13 +24,13 @@ class FileHandler:
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
         return []
- 
+
     @staticmethod
     def save_data(offers: List[Offer], output_path: str):
         try:
-            with open(output_path, 'w') as file:
-                serialized_data = DataParser.reverse_parse_offers(offers= offers)
-                json.dump({"offers" : serialized_data}, file, indent=2)
+            with open(output_path, "w") as file:
+                serialized_data = DataParser.reverse_parse_offers(offers=offers)
+                json.dump({"offers": serialized_data}, file, indent=2)
             print(f"Data saved successfully to {output_path}")
         except Exception as e:
             print(f"An error occurred while saving data: {e}")

@@ -1,10 +1,11 @@
 import argparse
 from datetime import datetime
 
-from .fileHandler import FileHandler
-from .dataParser import DataParser
-from .offerFilter import OfferFilter, FilterFunctionManager
+from .file_handler import FileHandler
+from .data_parser import DataParser
+from .offer_filter import OfferFilter, FilterFunctionManager
 from .selector import OfferSelector, MerchantDistanceHeapCreationStrategy
+
 
 class CliApplication:
     def __init__(self) -> None:
@@ -61,5 +62,7 @@ class CliApplication:
             .execute()
         )
 
-        targetOffers = OfferSelector.select(filtered_offers_list, 2, MerchantDistanceHeapCreationStrategy())
-        FileHandler.save_data(offers=targetOffers, output_path=output_file_path)
+        target_offers = OfferSelector.select(
+            filtered_offers_list, 2, MerchantDistanceHeapCreationStrategy()
+        )
+        FileHandler.save_data(offers=target_offers, output_path=output_file_path)
