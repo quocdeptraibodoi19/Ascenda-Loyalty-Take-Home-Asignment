@@ -1,15 +1,29 @@
 {
   "offers": [
     {
+      "id": 3,
+      "title": "",
+      "description": "",
+      "category": 4,
+      "merchants": [
+        {
+          "id": 1,
+          "name": "Invalid Date Merchant",
+          "distance": 0.1
+        }
+      ],
+      "valid_to": "2022-01-08"
+    },
+    {
       "id": 1,
       "title": "",
       "description": "",
       "category": 2,
       "merchants": [
         {
-          "id": 1,
-          "name": "Invalid Merchant",
-          "distance": 1.0
+          "id": 2,
+          "name": "merchant2",
+          "distance": 0.2
         }
       ],
       "valid_to": "2022-01-06"

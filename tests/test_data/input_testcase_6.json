@@ -10,18 +10,47 @@
                     "id": 1,
                     "name": "Invalid Merchant",
                     "distance": 1.0
+                },
+                {
+                    "id": 2,
+                    "name": "merchant2",
+                    "distance": 0.2
                 }
             ]
         },
         {
             "id": 2,
-            "category": 1,
-            "valid_to": "2022-01-02",
+            "category": 2,
+            "valid_to": "2022-01-07",
             "merchants": [
                 {
-                    "id": 2,
+                    "id": 1,
+                    "name": "Invalid Merchant",
+                    "distance": 0.8
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "category": 4,
+            "valid_to": "2022-01-08",
+            "merchants": [
+                {
+                    "id": 1,
                     "name": "Invalid Date Merchant",
-                    "distance": 2.0
+                    "distance": 0.1
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "category": 4,
+            "valid_to": "2022-01-03",
+            "merchants": [
+                {
+                    "id": 1,
+                    "name": "Invalid Date Merchant",
+                    "distance": 0.3
                 }
             ]
         }
