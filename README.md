@@ -7,10 +7,10 @@
 ## Setup
 1. Clone the project from Github to your local machine
 2. Navigate to the project directory
-3. Create a virtual environment (optional but recommended): ```python -m venv venv```
+3. Create a virtual environment (optional but recommended): ```python -m venv .env```
 4. Activate the virtual environment:
-    - On Windows: ```venv\Scripts\activate```
-    - On Unix or MacOS: ```source venv/bin/activate```
+    - On Windows: ```.env\Scripts\activate```
+    - On Unix or MacOS: ```source .env/bin/activate```
 5. Install dependencies: ```pip install -r requirements.txt```
 
 ## Usage
