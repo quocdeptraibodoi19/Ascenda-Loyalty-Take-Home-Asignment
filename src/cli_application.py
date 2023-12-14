@@ -5,7 +5,7 @@ import os
 from .config import mapping_category, include_categories, day_gap, target_number_offers
 from .file_handler import FileHandler
 from .data_parser import DataParser
-from .offer_filter import OfferFilter, FilterFunctionManager
+from .filter import OfferFilter, FilterFunctionManager
 from .selector import OfferSelector, MerchantDistanceHeapCreationStrategy
 
 
