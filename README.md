@@ -28,11 +28,3 @@ or
 
 Optional:
 - `-o, --output_file_path`:  Path to the output file (default: output.json).
-
-## Test
-1. Navigate to the `tests` folder
-2. Run the tests using the command:
-```python
-    pytest test_integration.py
-```
-
